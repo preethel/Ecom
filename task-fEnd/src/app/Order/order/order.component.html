@@ -1,0 +1,35 @@
+<div class="container">
+    <button class="btn btn-success">Confirm Order</button>
+    <table class="table">
+        <thead>
+            <tr>
+                <th scope="col">#</th>
+                <th scope="col">Photo</th>
+                <th scope="col">Title</th>
+                <th scope="col">Description</th>
+                <th scope="col">Price and quantity</th>
+                <th scope="col">Total Price</th>
+            </tr>
+        </thead>
+        <tbody>
+            <tr *ngFor="let item of carts">
+                <th scope="row"></th>
+                <td><img mat-card-sm-image width="30px" height="30px" [src]="item._product.photoUrl"></td>
+                <td>{{item._product.title}}</td>
+                <td>{{item._product.description}}</td>
+                <td>{{item._product.price}} x {{item.count}}</td>
+                <td>{{item._product.price * item.count}}</td>
+            </tr>
+        </tbody>
+        <tfoot>
+            <tr>
+                <td></td>
+                <td></td>
+                <td></td>
+                <td></td>
+                <td></td>
+                <td>Total = {{getTotalPrice()}}</td>
+            </tr>
+        </tfoot>
+    </table>
+</div>

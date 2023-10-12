@@ -1,0 +1,36 @@
+<div class="container">
+    <div class="row">
+        <div class="col-md-3">
+            <a class="btn btn-warning" href="order">Place order</a>
+        </div>
+        <div class="col-md-3"></div>
+        <div class="col-md-3"></div>
+        <div class="col-md-3">
+            <button style="margin-left: 90%;" class="btn btn-danger" (click)="clear()">Clear</button>
+        </div>
+    </div>
+    <div class="row">
+        <div *ngFor="let item of carts">
+            <mat-card>
+                <mat-card-header>
+                    <mat-card-title-group>
+                        <mat-card-title>{{ item._product.title }}</mat-card-title>
+                        <mat-card-subtitle>{{ item._product.description }}</mat-card-subtitle>
+                        <img mat-card-sm-image [src]="item._product.photoUrl">
+                        <mat-card-footer>Items: {{item.count}}</mat-card-footer>
+                    </mat-card-title-group>
+                </mat-card-header>
+                <mat-card-content>
+                    Price: {{ item._product.price }}<br>
+                    Quantity: {{ item._product.quantity }}
+                </mat-card-content>
+                <mat-card-actions><button mat-icon-button extended color="primary" (click)="delete(item._product)">
+                    <mat-icon>delete</mat-icon>
+                  </button></mat-card-actions>
+            </mat-card>
+        </div>
+    </div>
+
+    <mat-paginator [length]="totalProducts" [pageSize]="pageSize" [pageIndex]="pageIndex"
+        (page)="handlePageChange($event)"></mat-paginator>
+</div>

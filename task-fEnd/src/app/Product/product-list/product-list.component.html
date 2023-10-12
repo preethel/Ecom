@@ -1,0 +1,31 @@
+<div class="container">
+  <div class="row">
+    <div class="col-md-6" *ngFor="let product of Products">
+      <mat-card>
+        <mat-card-header>
+          <mat-card-title-group>
+            <mat-card-title>{{ product.title }}</mat-card-title>
+            <mat-card-subtitle>{{ product.description }}</mat-card-subtitle>
+            <img mat-card-sm-image [src]="product.photoUrl">
+          </mat-card-title-group>
+        </mat-card-header>
+        <mat-card-content>
+          Price: {{ product.price }}<br>
+          Quantity: {{ product.quantity }}
+        </mat-card-content>
+        <mat-card-actions><button mat-icon-button extended color="primary" (click)="addToCart(product)">
+            <mat-icon>shopping_cart</mat-icon>
+          </button></mat-card-actions>
+        <mat-card-actions><button mat-icon-button extended color="primary" (click)="deleteProduct(product)">
+            <mat-icon>delete</mat-icon>
+          </button></mat-card-actions>
+
+      </mat-card>
+    </div>
+  </div>
+
+  <mat-paginator [length]="totalProducts" [pageSize]="pageSize" [pageIndex]="pageIndex"
+    (page)="handlePageChange($event)"></mat-paginator>
+
+
+</div>
