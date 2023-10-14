@@ -1,6 +1,6 @@
 # Angular Ecommerce Project
 
-This is a sample Angular Ecommerce project that serves as a frontend for an ecommerce application. It's built using Angular for the frontend, .NET Core 3.1 for the backend, and Microsoft SQL Server for the database.
+This is a sample Angular Ecommerce project that serves as a frontend for an ecommerce application. It's built using Angular 16 for the frontend, .NET 7 for the backend, and Microsoft SQL Server for the database with Entity Framework Core.
 
 ## Table of Contents
 - [Overview](#overview)
